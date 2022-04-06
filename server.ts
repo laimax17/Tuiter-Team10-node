@@ -25,11 +25,13 @@ const session = require("express-session");
 
 // build the connection string
 const PROTOCOL = "mongodb+srv";
+//DB_USERNAME = team10
+//DB_PASSWORD = team10
 const DB_USERNAME = process.env.DB_USERNAME;
 const DB_PASSWORD = process.env.DB_PASSWORD;
 
-const HOST = "cluster0.gci7e.mongodb.net";
-const DB_NAME = "tuiter";
+const HOST = "cluster0.uyhzm.mongodb.net";
+const DB_NAME = "5500-team10";
 const DB_QUERY = "retryWrites=true&w=majority";
 const connectionString = `${PROTOCOL}://${DB_USERNAME}:${DB_PASSWORD}@${HOST}/${DB_NAME}?${DB_QUERY}`;
 mongoose.connect(connectionString);
