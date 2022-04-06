@@ -20,6 +20,10 @@ import AuthenticationController from "./controllers/AuthenticationController";
 import mongoose from "mongoose";
 import GroupController from "./controllers/GroupController";
 import DislikeController from './controllers/DislikeController';
+import dotenv  from "dotenv";
+
+dotenv.config();
+
 const cors = require("cors");
 const session = require("express-session");
 

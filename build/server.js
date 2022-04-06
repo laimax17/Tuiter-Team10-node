@@ -29,19 +29,19 @@ const cors = require("cors");
 const session = require("express-session");
 // build the connection string
 const PROTOCOL = "mongodb+srv";
-// const DB_USERNAME = process.env.DB_USERNAME;
-// const DB_PASSWORD = process.env.DB_PASSWORD;
-const DB_USERNAME = 'max17';
-const DB_PASSWORD = 'max17';
-const HOST = "cluster0.gci7e.mongodb.net";
-const DB_NAME = "tuiter";
+//DB_USERNAME = team10
+//DB_PASSWORD = team10
+const DB_USERNAME = process.env.DB_USERNAME;
+const DB_PASSWORD = process.env.DB_PASSWORD;
+const HOST = "cluster0.uyhzm.mongodb.net";
+const DB_NAME = "5500-team10";
 const DB_QUERY = "retryWrites=true&w=majority";
 const connectionString = `${PROTOCOL}://${DB_USERNAME}:${DB_PASSWORD}@${HOST}/${DB_NAME}?${DB_QUERY}`;
 mongoose_1.default.connect(connectionString);
 const app = (0, express_1.default)();
 app.use(cors({
     credentials: true,
-    origin: 'http://localhost:3000'
+    origin: process.env.CORS_ORIGIN
 }));
 const SECRET = 'process.env.SECRET';
 let sess = {
@@ -49,12 +49,12 @@ let sess = {
     saveUninitialized: true,
     resave: true,
     cookie: {
-        secure: false
+        sameSite: process.env.NODE_ENV === "production" ? 'none' : 'lax',
+        secure: process.env.NODE_ENV === "production",
     }
 };
 if (process.env.ENVIRONMENT === 'PRODUCTION') {
     app.set('trust proxy', 1); // trust first proxy
-    sess.cookie.secure = true; // serve secure cookies
 }
 app.use(session(sess));
 app.use(express_1.default.json());
