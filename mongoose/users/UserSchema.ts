@@ -29,7 +29,11 @@ const UserSchema = new mongoose.Schema<User>(
       longitude: Number
     },
     salary: { type: Number, default: 50000 },
-    avatar: String
+    avatar: {
+      type: String,
+      default:
+        "https://firebasestorage.googleapis.com/v0/b/image-d9eae.appspot.com/o/images%2Fdefault-avatar.jpeg?alt=media&token=4c5d0224-e530-4d60-b03a-f56251460ee2"
+    }
   },
   { collection: "users" }
 );
