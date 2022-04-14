@@ -10,4 +10,5 @@ export default interface Tuit {
   avatarLogo?: String;
   imageOverlay?: String;
   stats: Stats;
+  isPrivate: boolean;
 }
