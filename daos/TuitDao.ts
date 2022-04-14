@@ -46,4 +46,9 @@ export default class TuitDao implements TuitDaoI{
         );
     deleteTuit = async (uid: string): Promise<any> =>
         TuitModel.deleteOne({_id: uid});
+
+    setTuitIsPrivate = async (tid: string, isPrivate: Boolean): Promise<any> => TuitModel.updateOne(
+        {_id: tid},
+        {$set: {isPrivate: isPrivate}}
+    );
 }
