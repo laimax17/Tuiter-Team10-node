@@ -10,5 +10,5 @@ export default interface TuitDaoI {
     createTuitByUser (uid: string, tuit: Tuit): Promise<Tuit>;
     updateTuit (tid: string, tuit: Tuit): Promise<any>;
     deleteTuit (tid: string): Promise<any>;
-    setTuitIsPrivate (tid: string, isPrivate: Boolean): Promise<any>;
+    setTuitIsPrivate (tid: string, isPrivate: Tuit): Promise<any>;
 };
