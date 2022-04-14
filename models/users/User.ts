@@ -6,7 +6,7 @@ import mongoose from "mongoose";
 export default interface User {
   _id?: mongoose.Schema.Types.ObjectId;
   username: string;
-  password: string;
+  password?: string;
   email: string;
   firstName?: string;
   lastName?: string;
@@ -19,4 +19,5 @@ export default interface User {
   location?: Location;
   salary?: number;
   avatar?: string;
+  header?: string;
 }

@@ -33,6 +33,11 @@ const UserSchema = new mongoose.Schema<User>(
       type: String,
       default:
         "https://firebasestorage.googleapis.com/v0/b/image-d9eae.appspot.com/o/images%2Fdefault-avatar.jpeg?alt=media&token=4c5d0224-e530-4d60-b03a-f56251460ee2"
+    },
+    header: {
+      type: String,
+      default:
+        "https://firebasestorage.googleapis.com/v0/b/image-d9eae.appspot.com/o/images%2Fnasa-profile-header.jpg?alt=media&token=6dbfda02-bc23-4084-bff6-0cc23ebaf695"
     }
   },
   { collection: "users" }

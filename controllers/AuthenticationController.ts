@@ -51,6 +51,7 @@ const AuthenticationController = (app: Express) => {
     } else {
       const insertedUser = await userDao.createUser(newUser);
       delete insertedUser.password;
+
       // @ts-ignore
       req.session["profile"] = insertedUser;
       res.json(insertedUser);
