@@ -133,4 +133,6 @@ export default class TuitController implements TuitControllerI {
     setTuitIsPrivate = (req: Request, res: Response) => 
         TuitController.tuitDao.setTuitIsPrivate(req.params.uid, req.body)
             .then((status) => res.send(status));
+
+    
 };

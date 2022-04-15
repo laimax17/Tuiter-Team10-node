@@ -48,6 +48,7 @@ export default class UserController implements UserControllerI {
             app.delete("/api/users",
                 UserController.userController.deleteAllUsers);
 
+
             // for testing. Not RESTful
             app.get("/api/users/create",
               UserController.userController.createUser);
@@ -57,6 +58,11 @@ export default class UserController implements UserControllerI {
               UserController.userController.deleteUsersByUsername);
             app.get("/api/users/delete",
               UserController.userController.deleteAllUsers);
+            
+            // session 
+            app.get("/api/users/session/:uid",
+                UserController.userController.getUserIdBySession);
+            
         }
         return UserController.userController;
     }
@@ -132,4 +138,25 @@ export default class UserController implements UserControllerI {
     deleteUsersByUsername = (req: Request, res: Response) =>
       UserController.userDao.deleteUsersByUsername(req.params.username)
         .then(status => res.send(status));
+
+    /**
+     * Retrieves the user by their primary key
+     * @param {Request} req Represents request from client, including path
+     * parameter uid identifying the primary key of the user to be retrieved
+     * @param {Response} res Represents response to client, including the
+     * body formatted as JSON containing the user that matches the user ID
+     */
+     getUserIdBySession = (req: Request, res: Response) => {
+         // @ts-ignore
+        let userId = req.params.uid === "my" && req.session['profile'] ?
+            // @ts-ignore
+            req.session['profile']._id : req.params.uid;
+        if (userId === "my") {
+            res.sendStatus(503);
+            return;
+        }
+        return UserController.userDao.getUserIdBySession(userId)
+            .then((user: User) => res.json(user));
+        
+        }
 };

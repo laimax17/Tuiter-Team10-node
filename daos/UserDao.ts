@@ -97,5 +97,9 @@ export default class UserDao implements UserDaoI {
     
     findUserByCredentials = async (username: string, password: string): Promise<any> =>
         UserModel.findOne({username: username, password: password});
+
+    getUserIdBySession = async (uid: string): Promise<any> =>
+        UserModel.findById(uid);
+
     
 };
