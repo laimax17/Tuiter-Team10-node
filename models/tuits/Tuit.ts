@@ -11,4 +11,5 @@ export default interface Tuit {
   imageOverlay?: String;
   stats: Stats;
   isPrivate: boolean;
+  address: String;
 }

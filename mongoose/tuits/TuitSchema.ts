@@ -15,7 +15,8 @@ const TuitSchema = new mongoose.Schema<Tuit>(
       likes: { type: Number, default: 0 },
       dislikes: { type: Number, default: 0 }
     },
-    isPrivate: {type: Boolean, default: false},
+    isPrivate: { type: Boolean, default: false },
+    address: { type: String, default: "" }
   },
   { collection: "tuits" }
 );
