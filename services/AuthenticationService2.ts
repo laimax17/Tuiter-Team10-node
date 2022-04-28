@@ -50,7 +50,3 @@ export const initializeSalaries = async (salary: number) => {
 register('alice678', 'alice234', 'alice234@gmail.com')
 
 login('alice678', 'alice234')
-// login('alice', 'alice123')
-
-// userDao.findAllUsers()
-//     .then(users => console.log(users));
